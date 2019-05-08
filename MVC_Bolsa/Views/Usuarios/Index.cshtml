@@ -1,10 +1,10 @@
-﻿@model IEnumerable<MVC_Bolsa.Models.Acao>
+﻿@model IEnumerable<MVC_Bolsa.Models.Usuario>
 
 @{
-    ViewData["Title"] = "Bolsa de valores";
+    ViewData["Title"] = "Index";
 }
 
-<h2>Bolsa de valores - lista de ações</h2>
+<h2>Index</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -16,7 +16,7 @@
                 @Html.DisplayNameFor(model => model.Nome)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Preco)
+                @Html.DisplayNameFor(model => model.Saldo)
             </th>
             <th></th>
         </tr>
@@ -28,7 +28,7 @@
                 @Html.DisplayFor(modelItem => item.Nome)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Preco)
+                @Html.DisplayFor(modelItem => item.Saldo)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

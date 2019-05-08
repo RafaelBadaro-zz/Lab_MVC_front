@@ -3,14 +3,16 @@ using MVC_Bolsa.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MVC_Bolsa.Migrations
 {
     [DbContext(typeof(MVC_BolsaContext))]
-    partial class MVC_BolsaContextModelSnapshot : ModelSnapshot
+    [Migration("20190508005317_3")]
+    partial class _3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,8 +46,6 @@ namespace MVC_Bolsa.Migrations
                     b.Property<long>("IdAcaoForeignKey");
 
                     b.Property<long>("IdUsuarioForeignKey");
-
-                    b.Property<int>("Quantidade");
 
                     b.HasKey("Id");
 

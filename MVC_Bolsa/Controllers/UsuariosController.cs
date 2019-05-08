@@ -9,22 +9,22 @@ using MVC_Bolsa.Models;
 
 namespace MVC_Bolsa.Controllers
 {
-    public class AcoesController : Controller
+    public class UsuariosController : Controller
     {
         private readonly MVC_BolsaContext _context;
 
-        public AcoesController(MVC_BolsaContext context)
+        public UsuariosController(MVC_BolsaContext context)
         {
             _context = context;
         }
 
-        // GET: Acoes
+        // GET: Usuarios
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Acao.ToListAsync());
+            return View(await _context.Usuario.ToListAsync());
         }
 
-        // GET: Acoes/Details/5
+        // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -32,39 +32,39 @@ namespace MVC_Bolsa.Controllers
                 return NotFound();
             }
 
-            var acao = await _context.Acao
+            var usuario = await _context.Usuario
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (acao == null)
+            if (usuario == null)
             {
                 return NotFound();
             }
 
-            return View(acao);
+            return View(usuario);
         }
 
-        // GET: Acoes/Create
+        // GET: Usuarios/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Acoes/Create
+        // POST: Usuarios/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Nome,Preco")] Acao acao)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Saldo")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(acao);
+                _context.Add(usuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(acao);
+            return View(usuario);
         }
 
-        // GET: Acoes/Edit/5
+        // GET: Usuarios/Edit/5
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -72,22 +72,22 @@ namespace MVC_Bolsa.Controllers
                 return NotFound();
             }
 
-            var acao = await _context.Acao.FindAsync(id);
-            if (acao == null)
+            var usuario = await _context.Usuario.FindAsync(id);
+            if (usuario == null)
             {
                 return NotFound();
             }
-            return View(acao);
+            return View(usuario);
         }
 
-        // POST: Acoes/Edit/5
+        // POST: Usuarios/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("ID,Nome,Preco")] Acao acao)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,Nome,Saldo")] Usuario usuario)
         {
-            if (id != acao.Id)
+            if (id != usuario.Id)
             {
                 return NotFound();
             }
@@ -96,12 +96,12 @@ namespace MVC_Bolsa.Controllers
             {
                 try
                 {
-                    _context.Update(acao);
+                    _context.Update(usuario);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AcaoExists(acao.Id))
+                    if (!UsuarioExists(usuario.Id))
                     {
                         return NotFound();
                     }
@@ -112,10 +112,10 @@ namespace MVC_Bolsa.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(acao);
+            return View(usuario);
         }
 
-        // GET: Acoes/Delete/5
+        // GET: Usuarios/Delete/5
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
@@ -123,30 +123,30 @@ namespace MVC_Bolsa.Controllers
                 return NotFound();
             }
 
-            var acao = await _context.Acao
+            var usuario = await _context.Usuario
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (acao == null)
+            if (usuario == null)
             {
                 return NotFound();
             }
 
-            return View(acao);
+            return View(usuario);
         }
 
-        // POST: Acoes/Delete/5
+        // POST: Usuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            var acao = await _context.Acao.FindAsync(id);
-            _context.Acao.Remove(acao);
+            var usuario = await _context.Usuario.FindAsync(id);
+            _context.Usuario.Remove(usuario);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AcaoExists(long id)
+        private bool UsuarioExists(long id)
         {
-            return _context.Acao.Any(e => e.Id == id);
+            return _context.Usuario.Any(e => e.Id == id);
         }
     }
 }

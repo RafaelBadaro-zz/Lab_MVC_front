@@ -9,22 +9,23 @@ using MVC_Bolsa.Models;
 
 namespace MVC_Bolsa.Controllers
 {
-    public class AcoesController : Controller
+    public class AcaoUsuariosController : Controller
     {
         private readonly MVC_BolsaContext _context;
 
-        public AcoesController(MVC_BolsaContext context)
+        public AcaoUsuariosController(MVC_BolsaContext context)
         {
             _context = context;
         }
 
-        // GET: Acoes
+        // GET: AcaoUsuarios
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Acao.ToListAsync());
+            var mVC_BolsaContext = _context.AcaoUsuario.Include(a => a.IdAcao).Include(a => a.IdUsuario);
+            return View(await mVC_BolsaContext.ToListAsync());
         }
 
-        // GET: Acoes/Details/5
+        // GET: AcaoUsuarios/Details/5
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -32,39 +33,45 @@ namespace MVC_Bolsa.Controllers
                 return NotFound();
             }
 
-            var acao = await _context.Acao
+            var acaoUsuario = await _context.AcaoUsuario
+                .Include(a => a.IdAcao)
+                .Include(a => a.IdUsuario)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (acao == null)
+            if (acaoUsuario == null)
             {
                 return NotFound();
             }
 
-            return View(acao);
+            return View(acaoUsuario);
         }
 
-        // GET: Acoes/Create
+        // GET: AcaoUsuarios/Create
         public IActionResult Create()
         {
+            ViewData["IdAcaoForeignKey"] = new SelectList(_context.Acao, "Id", "Nome");
+            ViewData["IdUsuarioForeignKey"] = new SelectList(_context.Set<Usuario>(), "Id", "Id");
             return View();
         }
 
-        // POST: Acoes/Create
+        // POST: AcaoUsuarios/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Nome,Preco")] Acao acao)
+        public async Task<IActionResult> Create([Bind("Id,IdUsuarioForeignKey,IdAcaoForeignKey")] AcaoUsuario acaoUsuario)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(acao);
+                _context.Add(acaoUsuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(acao);
+            ViewData["IdAcaoForeignKey"] = new SelectList(_context.Acao, "Id", "Nome", acaoUsuario.IdAcaoForeignKey);
+            ViewData["IdUsuarioForeignKey"] = new SelectList(_context.Set<Usuario>(), "Id", "Id", acaoUsuario.IdUsuarioForeignKey);
+            return View(acaoUsuario);
         }
 
-        // GET: Acoes/Edit/5
+        // GET: AcaoUsuarios/Edit/5
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -72,22 +79,24 @@ namespace MVC_Bolsa.Controllers
                 return NotFound();
             }
 
-            var acao = await _context.Acao.FindAsync(id);
-            if (acao == null)
+            var acaoUsuario = await _context.AcaoUsuario.FindAsync(id);
+            if (acaoUsuario == null)
             {
                 return NotFound();
             }
-            return View(acao);
+            ViewData["IdAcaoForeignKey"] = new SelectList(_context.Acao, "Id", "Nome", acaoUsuario.IdAcaoForeignKey);
+            ViewData["IdUsuarioForeignKey"] = new SelectList(_context.Set<Usuario>(), "Id", "Id", acaoUsuario.IdUsuarioForeignKey);
+            return View(acaoUsuario);
         }
 
-        // POST: Acoes/Edit/5
+        // POST: AcaoUsuarios/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("ID,Nome,Preco")] Acao acao)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,IdUsuarioForeignKey,IdAcaoForeignKey")] AcaoUsuario acaoUsuario)
         {
-            if (id != acao.Id)
+            if (id != acaoUsuario.Id)
             {
                 return NotFound();
             }
@@ -96,12 +105,12 @@ namespace MVC_Bolsa.Controllers
             {
                 try
                 {
-                    _context.Update(acao);
+                    _context.Update(acaoUsuario);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!AcaoExists(acao.Id))
+                    if (!AcaoUsuarioExists(acaoUsuario.Id))
                     {
                         return NotFound();
                     }
@@ -112,10 +121,12 @@ namespace MVC_Bolsa.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(acao);
+            ViewData["IdAcaoForeignKey"] = new SelectList(_context.Acao, "Id", "Nome", acaoUsuario.IdAcaoForeignKey);
+            ViewData["IdUsuarioForeignKey"] = new SelectList(_context.Set<Usuario>(), "Id", "Id", acaoUsuario.IdUsuarioForeignKey);
+            return View(acaoUsuario);
         }
 
-        // GET: Acoes/Delete/5
+        // GET: AcaoUsuarios/Delete/5
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
@@ -123,30 +134,32 @@ namespace MVC_Bolsa.Controllers
                 return NotFound();
             }
 
-            var acao = await _context.Acao
+            var acaoUsuario = await _context.AcaoUsuario
+                .Include(a => a.IdAcao)
+                .Include(a => a.IdUsuario)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (acao == null)
+            if (acaoUsuario == null)
             {
                 return NotFound();
             }
 
-            return View(acao);
+            return View(acaoUsuario);
         }
 
-        // POST: Acoes/Delete/5
+        // POST: AcaoUsuarios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            var acao = await _context.Acao.FindAsync(id);
-            _context.Acao.Remove(acao);
+            var acaoUsuario = await _context.AcaoUsuario.FindAsync(id);
+            _context.AcaoUsuario.Remove(acaoUsuario);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AcaoExists(long id)
+        private bool AcaoUsuarioExists(long id)
         {
-            return _context.Acao.Any(e => e.Id == id);
+            return _context.AcaoUsuario.Any(e => e.Id == id);
         }
     }
 }

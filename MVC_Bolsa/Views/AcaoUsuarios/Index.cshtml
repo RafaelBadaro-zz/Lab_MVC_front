@@ -1,10 +1,10 @@
-﻿@model IEnumerable<MVC_Bolsa.Models.Acao>
+﻿@model IEnumerable<MVC_Bolsa.Models.AcaoUsuario>
 
 @{
-    ViewData["Title"] = "Bolsa de valores";
+    ViewData["Title"] = "Index";
 }
 
-<h2>Bolsa de valores - lista de ações</h2>
+<h2>Index</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Nome)
+                @Html.DisplayNameFor(model => model.IdUsuario)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Preco)
+                @Html.DisplayNameFor(model => model.IdAcao)
             </th>
             <th></th>
         </tr>
@@ -25,10 +25,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Nome)
+                @Html.DisplayFor(modelItem => item.IdUsuario.Id)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Preco)
+                @Html.DisplayFor(modelItem => item.IdAcao.Nome)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

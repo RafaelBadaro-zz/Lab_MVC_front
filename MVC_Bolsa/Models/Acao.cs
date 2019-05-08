@@ -8,8 +8,8 @@ namespace MVC_Bolsa.Models
 {
     public class Acao
     {
-
-        public long ID { get; set; }
+        [Key]
+        public long Id { get; set; }
 
         [Display(Name = "Nome")]
         [Required(ErrorMessage = "Este campo é obrigatório")]
