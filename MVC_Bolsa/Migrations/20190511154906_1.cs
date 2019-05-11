@@ -3,10 +3,24 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MVC_Bolsa.Migrations
 {
-    public partial class _3 : Migration
+    public partial class _1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Acao",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(maxLength: 100, nullable: false),
+                    Preco = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Acao", x => x.Id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "Usuario",
                 columns: table => new
@@ -14,7 +28,7 @@ namespace MVC_Bolsa.Migrations
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(nullable: true),
-                    Saldo = table.Column<decimal>(nullable: false)
+                    Saldo = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -28,7 +42,9 @@ namespace MVC_Bolsa.Migrations
                     Id = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     IdUsuarioForeignKey = table.Column<long>(nullable: false),
-                    IdAcaoForeignKey = table.Column<long>(nullable: false)
+                    IdAcaoForeignKey = table.Column<long>(nullable: false),
+                    Quantidade = table.Column<int>(nullable: false),
+                    ValorTotal = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -62,6 +78,9 @@ namespace MVC_Bolsa.Migrations
         {
             migrationBuilder.DropTable(
                 name: "AcaoUsuario");
+
+            migrationBuilder.DropTable(
+                name: "Acao");
 
             migrationBuilder.DropTable(
                 name: "Usuario");

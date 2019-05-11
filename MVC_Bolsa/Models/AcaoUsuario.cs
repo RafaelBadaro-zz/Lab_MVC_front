@@ -14,13 +14,20 @@ namespace MVC_Bolsa.Models
         
         public long IdUsuarioForeignKey { get; set; }
         [ForeignKey("IdUsuarioForeignKey")]
+        [Display(Name = "Usuário")]
         public Usuario IdUsuario { get; set; }
 
         public long IdAcaoForeignKey { get; set; }
         [ForeignKey("IdAcaoForeignKey")]
+        [Display(Name  = "Ação")]
         public Acao IdAcao { get; set; }
 
+        [Display(Name = "Quantidade")]
         public int Quantidade { get; set; }
+
+        [Display(Name = "Valor Total")]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal ValorTotal { get; set; }
 
     }
 }

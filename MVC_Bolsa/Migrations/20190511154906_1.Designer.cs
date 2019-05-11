@@ -9,14 +9,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Bolsa.Migrations
 {
     [DbContext(typeof(MVC_BolsaContext))]
-    [Migration("20190508005825_4")]
-    partial class _4
+    [Migration("20190511154906_1")]
+    partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.1.8-servicing-32085")
+                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -30,7 +30,8 @@ namespace MVC_Bolsa.Migrations
                         .IsRequired()
                         .HasMaxLength(100);
 
-                    b.Property<decimal>("Preco");
+                    b.Property<decimal>("Preco")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
@@ -49,6 +50,9 @@ namespace MVC_Bolsa.Migrations
 
                     b.Property<int>("Quantidade");
 
+                    b.Property<decimal>("ValorTotal")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("IdAcaoForeignKey");
@@ -66,7 +70,8 @@ namespace MVC_Bolsa.Migrations
 
                     b.Property<string>("Nome");
 
-                    b.Property<decimal>("Saldo");
+                    b.Property<decimal>("Saldo")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 

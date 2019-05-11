@@ -82,3 +82,13 @@ C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\View
 C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\Usuarios\Details.g.cshtml.cs
 C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\Usuarios\Edit.g.cshtml.cs
 C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\Usuarios\Index.g.cshtml.cs
+C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\Usuarios\Create.g.cshtml.cs
+C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\Usuarios\Delete.g.cshtml.cs
+C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\Usuarios\Details.g.cshtml.cs
+C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\Usuarios\Edit.g.cshtml.cs
+C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\Usuarios\Index.g.cshtml.cs
+C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Create.g.cshtml.cs
+C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Delete.g.cshtml.cs
+C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Details.g.cshtml.cs
+C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Edit.g.cshtml.cs
+C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Index.g.cshtml.cs
