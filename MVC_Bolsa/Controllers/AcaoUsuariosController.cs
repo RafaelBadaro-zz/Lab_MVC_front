@@ -49,7 +49,7 @@ namespace MVC_Bolsa.Controllers
         public IActionResult Create()
         {
             ViewData["IdAcaoForeignKey"] = new SelectList(_context.Acao, "Id", "Nome");
-            ViewData["IdUsuarioForeignKey"] = new SelectList(_context.Usuario, "Id", "Id");
+            ViewData["IdUsuarioForeignKey"] = new SelectList(_context.Usuario, "Id", "Nome");
             return View();
         }
 
@@ -58,7 +58,7 @@ namespace MVC_Bolsa.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,IdUsuarioForeignKey,IdAcaoForeignKey,Quantidade,ValorTotal")] AcaoUsuario acaoUsuario)
+        public async Task<IActionResult> Create([Bind("Id,IdUsuarioForeignKey,IdAcaoForeignKey,Quantidade")] AcaoUsuario acaoUsuario)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +67,7 @@ namespace MVC_Bolsa.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdAcaoForeignKey"] = new SelectList(_context.Acao, "Id", "Nome", acaoUsuario.IdAcaoForeignKey);
-            ViewData["IdUsuarioForeignKey"] = new SelectList(_context.Usuario, "Id", "Id", acaoUsuario.IdUsuarioForeignKey);
+            ViewData["IdUsuarioForeignKey"] = new SelectList(_context.Usuario, "Id", "Nome", acaoUsuario.IdUsuarioForeignKey);
             return View(acaoUsuario);
         }
 
@@ -94,7 +94,7 @@ namespace MVC_Bolsa.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,IdUsuarioForeignKey,IdAcaoForeignKey,Quantidade,ValorTotal")] AcaoUsuario acaoUsuario)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,IdUsuarioForeignKey,IdAcaoForeignKey,Quantidade")] AcaoUsuario acaoUsuario)
         {
             if (id != acaoUsuario.Id)
             {
