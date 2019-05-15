@@ -11,7 +11,7 @@ namespace MVC_Bolsa.Controllers
 {
     public class AcaoUsuariosController : Controller
     {
-        private readonly MVC_BolsaContext _context;
+        private  MVC_BolsaContext _context;
 
         public AcaoUsuariosController(MVC_BolsaContext context)
         {
@@ -62,6 +62,19 @@ namespace MVC_Bolsa.Controllers
         {
             if (ModelState.IsValid)
             {
+                var usuario = _context.Usuario.First(u => u.Id == acaoUsuario.IdUsuarioForeignKey);
+                var acao = _context.Acao.First(a => a.Id == acaoUsuario.IdAcaoForeignKey);
+                var valorTotal = acao.Preco * acaoUsuario.Quantidade;
+                if (valorTotal > usuario.Saldo)
+                {
+                    //não pode realizar a compra
+                    return RedirectToAction(nameof(Index));
+                }
+                else
+                {
+                    acaoUsuario.ValorTotal = valorTotal;
+                    //usuario.Saldo = usuario.Saldo - valorTotal;
+                }
                 _context.Add(acaoUsuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
