@@ -73,7 +73,7 @@ namespace MVC_Bolsa.Controllers
                 else
                 {
                     acaoUsuario.ValorTotal = valorTotal;
-                    //usuario.Saldo = usuario.Saldo - valorTotal;
+                    usuario.Saldo = usuario.Saldo - valorTotal;
                 }
                 _context.Add(acaoUsuario);
                 await _context.SaveChangesAsync();
