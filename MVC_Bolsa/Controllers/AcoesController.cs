@@ -53,7 +53,7 @@ namespace MVC_Bolsa.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Nome,Preco")] Acao acao)
+        public async Task<IActionResult> Create([Bind("Id,Nome,Preco")] Acao acao)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace MVC_Bolsa.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("ID,Nome,Preco")] Acao acao)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,Nome,Preco")] Acao acao)
         {
             if (id != acao.Id)
             {
