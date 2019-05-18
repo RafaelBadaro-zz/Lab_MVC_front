@@ -12529,23 +12529,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dell\\.nuget\\packages\\": {},
+    "C:\\Users\\Ezequiel\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dell\\Desktop\\Lab_MVC_front\\MVC_Bolsa\\MVC_Bolsa.csproj",
+      "projectUniqueName": "C:\\Users\\Ezequiel\\Desktop\\Lab_MVC_front\\MVC_Bolsa\\MVC_Bolsa.csproj",
       "projectName": "MVC_Bolsa",
-      "projectPath": "C:\\Users\\Dell\\Desktop\\Lab_MVC_front\\MVC_Bolsa\\MVC_Bolsa.csproj",
-      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dell\\Desktop\\Lab_MVC_front\\MVC_Bolsa\\obj\\",
+      "projectPath": "C:\\Users\\Ezequiel\\Desktop\\Lab_MVC_front\\MVC_Bolsa\\MVC_Bolsa.csproj",
+      "packagesPath": "C:\\Users\\Ezequiel\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ezequiel\\Desktop\\Lab_MVC_front\\MVC_Bolsa\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ezequiel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
