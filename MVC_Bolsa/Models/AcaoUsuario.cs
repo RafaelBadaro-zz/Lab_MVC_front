@@ -25,6 +25,9 @@ namespace MVC_Bolsa.Models
         [Display(Name = "Quantidade")]
         public int Quantidade { get; set; }
 
+        [Display(Name = "Tipo Operação")]
+        public int Tipo { get; set; } //1 - venda, 2 - compra
+
         [Display(Name = "Valor Total")]
         [Column(TypeName = "decimal(18,2)")]
         public decimal ValorTotal { get; set; }

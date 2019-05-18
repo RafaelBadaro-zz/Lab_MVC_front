@@ -72,11 +72,6 @@ C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\MVC_Bolsa.
 C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\MVC_Bolsa.dll
 C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\MVC_Bolsa.pdb
 C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\MVC_Bolsa.csproj.CopyComplete
-C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Create.g.cshtml.cs
-C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Delete.g.cshtml.cs
-C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Details.g.cshtml.cs
-C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Edit.g.cshtml.cs
-C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Index.g.cshtml.cs
 C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\Usuarios\Create.g.cshtml.cs
 C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\Usuarios\Delete.g.cshtml.cs
 C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\Usuarios\Details.g.cshtml.cs
@@ -92,3 +87,8 @@ C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\V
 C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Details.g.cshtml.cs
 C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Edit.g.cshtml.cs
 C:\Users\1071746\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Index.g.cshtml.cs
+C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Create.g.cshtml.cs
+C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Delete.g.cshtml.cs
+C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Details.g.cshtml.cs
+C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Edit.g.cshtml.cs
+C:\Users\Dell\Desktop\Lab_MVC_front\MVC_Bolsa\obj\Debug\netcoreapp2.1\Razor\Views\AcaoUsuarios\Index.g.cshtml.cs

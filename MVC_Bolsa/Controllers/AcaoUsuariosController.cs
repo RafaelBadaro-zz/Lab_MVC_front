@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +12,7 @@ namespace MVC_Bolsa.Controllers
 {
     public class AcaoUsuariosController : Controller
     {
-        private  MVC_BolsaContext _context;
+        private readonly MVC_BolsaContext _context;
 
         public AcaoUsuariosController(MVC_BolsaContext context)
         {
@@ -52,35 +53,47 @@ namespace MVC_Bolsa.Controllers
             ViewData["IdUsuarioForeignKey"] = new SelectList(_context.Usuario, "Id", "Nome");
             return View();
         }
+ 
 
         // POST: AcaoUsuarios/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,IdUsuarioForeignKey,IdAcaoForeignKey,Quantidade")] AcaoUsuario acaoUsuario)
+        public async Task<IActionResult> Create([Bind("Id,IdUsuarioForeignKey,IdAcaoForeignKey,Quantidade,Tipo")] AcaoUsuario acaoUsuario)
         {
             if (ModelState.IsValid)
             {
                 var usuario = _context.Usuario.First(u => u.Id == acaoUsuario.IdUsuarioForeignKey);
                 var acao = _context.Acao.First(a => a.Id == acaoUsuario.IdAcaoForeignKey);
                 var valorTotal = acao.Preco * acaoUsuario.Quantidade;
-                if (valorTotal > usuario.Saldo)
+
+                if (acaoUsuario.Tipo == 1)//venda 
                 {
-                    //não pode realizar a compra
-                    return RedirectToAction(nameof(Index));
-                }
-                else
-                {
+                    // valor total é add ao saldo
                     acaoUsuario.ValorTotal = valorTotal;
-                    usuario.Saldo = usuario.Saldo - valorTotal;
+                    usuario.Saldo += valorTotal;
                 }
+                else// Compra
+                {               
+                    if (valorTotal > usuario.Saldo)
+                    {
+                        //não pode realizar a compra
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        acaoUsuario.ValorTotal = valorTotal;
+                        usuario.Saldo = usuario.Saldo - valorTotal;
+                    }
+                }
+ 
                 _context.Add(acaoUsuario);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdAcaoForeignKey"] = new SelectList(_context.Acao, "Id", "Nome", acaoUsuario.IdAcaoForeignKey);
-            ViewData["IdUsuarioForeignKey"] = new SelectList(_context.Usuario, "Id", "Nome", acaoUsuario.IdUsuarioForeignKey);
+            ViewData["IdUsuarioForeignKey"] = new SelectList(_context.Usuario, "Id", "Id", acaoUsuario.IdUsuarioForeignKey);
             return View(acaoUsuario);
         }
 
@@ -107,7 +120,7 @@ namespace MVC_Bolsa.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("Id,IdUsuarioForeignKey,IdAcaoForeignKey,Quantidade")] AcaoUsuario acaoUsuario)
+        public async Task<IActionResult> Edit(long id, [Bind("Id,IdUsuarioForeignKey,IdAcaoForeignKey,Quantidade,Tipo,ValorTotal")] AcaoUsuario acaoUsuario)
         {
             if (id != acaoUsuario.Id)
             {

@@ -4,21 +4,21 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<h2>Criando nova transação</h2>
 
-<h4>AcaoUsuario</h4>
+<h4>Transação</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="IdUsuarioForeignKey" class="control-label"></label>
-                <select asp-for="IdUsuarioForeignKey" class ="form-control" asp-items="ViewBag.IdUsuarioForeignKey"></select>
+                <label  class="control-label">Usuários</label>
+                <select asp-for="IdUsuarioForeignKey" class="form-control" asp-items="ViewBag.IdUsuarioForeignKey"></select>
             </div>
             <div class="form-group">
-                <label asp-for="IdAcaoForeignKey" class="control-label"></label>
-                <select asp-for="IdAcaoForeignKey" class ="form-control" asp-items="ViewBag.IdAcaoForeignKey"></select>
+                <label class="control-label">Ações</label>
+                <select asp-for="IdAcaoForeignKey" class="form-control" asp-items="ViewBag.IdAcaoForeignKey"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Quantidade" class="control-label"></label>
@@ -26,14 +26,21 @@
                 <span asp-validation-for="Quantidade" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <label asp-for="Tipo" class="control-label"></label>
+                <input asp-for="Tipo" class="form-control" type="radio" value="1"/>Venda
+                <input asp-for="Tipo" class="form-control" type="radio" value="2"/>Compra
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-default" />
             </div>
         </form>
-    </div>
+</div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Voltar</a>
 </div>
 
 @section Scripts {
